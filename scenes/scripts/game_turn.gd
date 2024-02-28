@@ -1,7 +1,9 @@
 extends Control
 
 @export var player: PackedScene
-@export var hitbox: PackedScene
+@export var black_hitbox: PackedScene
+@export var red_hitbox: PackedScene
+@export var blue_hitbox: PackedScene
 @export var pause_button: PackedScene
 
 @onready var spawner_array: Array[Node2D] = [
@@ -95,4 +97,11 @@ func _unpause_game():
 func _on_midi_player_midi_event(channel, event):
 	if randi() % (10 - 0) < 3:
 		var rand_index = randi() % spawner_len
-		_create_beat(spawner_array[rand_index], hitbox)
+		var spawner_name = spawner_array[rand_index].get_name()
+		var first_char = spawner_name.substr(0,1)
+		if first_char == "l":
+			_create_beat(spawner_array[rand_index], black_hitbox)
+		elif first_char == "r":
+			_create_beat(spawner_array[rand_index], red_hitbox)
+		else:
+			_create_beat(spawner_array[rand_index], blue_hitbox)

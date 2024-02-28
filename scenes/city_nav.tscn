@@ -15,6 +15,45 @@
 [ext_resource type="Texture2D" uid="uid://ccv8qcolorm31" path="res://assets/back.png" id="13_gg0mc"]
 [ext_resource type="Texture2D" uid="uid://slrimc5xolss" path="res://assets/active-back.png" id="14_q0gbh"]
 
+[sub_resource type="Animation" id="Animation_0m1n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%casablanca:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warzazat:texture_normal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%merrakch:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+
 [sub_resource type="Animation" id="Animation_um7xx"]
 resource_name = "dot"
 length = 0.60001
@@ -54,45 +93,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("7_7xowd"), ExtResource("8_dhouw"), ExtResource("9_mxfv0"), ExtResource("10_3qj1k"), ExtResource("11_l3uhr"), ExtResource("12_o0e6n")]
-}
-
-[sub_resource type="Animation" id="Animation_0m1n5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%casablanca:texture_normal")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_7xowd")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("warzazat:texture_normal")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_7xowd")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%merrakch:texture_normal")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_7xowd")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36mcn"]
@@ -309,7 +309,7 @@ texture_pressed = ExtResource("14_q0gbh")
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="cities/casablanca" to="." method="_on_casablanca_pressed"]
-[connection signal="pressed" from="cities/warzazat" to="." method="_on_fes_pressed"]
 [connection signal="pressed" from="cities/warzazat" to="." method="_on_warzazat_pressed"]
+[connection signal="pressed" from="cities/warzazat" to="." method="_on_fes_pressed"]
 [connection signal="pressed" from="cities/merrakch" to="." method="_on_merrakch_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_touch_screen_button_pressed"]

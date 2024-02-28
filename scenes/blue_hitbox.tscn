@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://blnqbnkief46v"]
+[gd_scene load_steps=7 format=3 uid="uid://fersgyu6030i"]
 
-[ext_resource type="PackedScene" uid="uid://br6a1tx1tk155" path="res://scenes/hitbox.tscn" id="1_txtyx"]
-[ext_resource type="Texture2D" uid="uid://djhu5etjgy7xo" path="res://assets/hitbox/START-click-black.png" id="2_8rqd5"]
-[ext_resource type="Texture2D" uid="uid://d1cm34qh7bmnw" path="res://assets/hitbox/black-out.png" id="3_oqeua"]
+[ext_resource type="PackedScene" uid="uid://br6a1tx1tk155" path="res://scenes/hitbox.tscn" id="1_8dtly"]
+[ext_resource type="Texture2D" uid="uid://eryf26q7evtm" path="res://assets/hitbox/START-click.png" id="2_ctip4"]
+[ext_resource type="Texture2D" uid="uid://t7xuhpbgsbqj" path="res://assets/hitbox/outline3.png" id="3_xo1ek"]
 
-[sub_resource type="Animation" id="Animation_dxy0y"]
+[sub_resource type="Animation" id="Animation_hn7ai"]
 resource_name = "expand"
 length = 3.00001
 tracks/0/type = "value"
@@ -14,10 +14,10 @@ tracks/0/path = NodePath("hitbox_texture:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 2.7),
+"times": PackedFloat32Array(0, 2, 2.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.7, 0.7), Vector2(0.8, 0.8)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -26,7 +26,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.9),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -40,13 +40,13 @@ tracks/2/path = NodePath(".:metadata/score")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.4, 2.8),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.3, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, -1]
 }
 
-[sub_resource type="Animation" id="Animation_t0l6d"]
+[sub_resource type="Animation" id="Animation_cfxfb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -73,36 +73,22 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebcqi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fi2di"]
 _data = {
-"RESET": SubResource("Animation_t0l6d"),
-"expand": SubResource("Animation_dxy0y")
+"RESET": SubResource("Animation_cfxfb"),
+"expand": SubResource("Animation_hn7ai")
 }
 
-[node name="hitbox" instance=ExtResource("1_txtyx")]
-self_modulate = Color(1, 1, 1, 0)
+[node name="hitbox" instance=ExtResource("1_8dtly")]
 
 [node name="hitbox_texture" parent="." index="0"]
-offset_left = -45.0
-offset_top = -45.0
-offset_right = 45.0
-offset_bottom = 45.0
-pivot_offset = Vector2(45, 45)
-texture = ExtResource("2_8rqd5")
-expand_mode = 1
+texture = ExtResource("2_ctip4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_ebcqi")
+"": SubResource("AnimationLibrary_fi2di")
 }
 autoplay = "expand"
 
 [node name="outline" parent="." index="3"]
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 38.0
-offset_bottom = 38.0
-pivot_offset = Vector2(39, 39)
-texture = ExtResource("3_oqeua")
-expand_mode = 1
+texture = ExtResource("3_xo1ek")
