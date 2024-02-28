@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1y42k4sanrp4"]
+
+[ext_resource type="Texture2D" uid="uid://brmwa0w1m1ppl" path="res://assets/jabar-pixel-m9awd.png" id="1_ff3qh"]
+
+[node name="win" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 9)
+scale = Vector2(7.86667, 7.86667)
+texture = ExtResource("1_ff3qh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -97.0
+offset_top = 129.0
+offset_right = 102.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 30
+text = "YOU WIN
+congrats man"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -634.0
+offset_top = -348.0
+offset_right = 646.0
+offset_bottom = 372.0

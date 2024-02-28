@@ -3,8 +3,9 @@ extends Control
 
 
 func _ready():
-	Sig.connect("lunch_game", func ():
-		hide())
+	#Sig.connect("lunch_game", func ():
+		#hide())
+	#Sig.connect('home', func ():)
 	pass # Replace with function body.
 
 
@@ -42,3 +43,6 @@ func _on_touch_screen_button_pressed():
 	if %menu.position.x == 38:
 		%menu_animation.play("slideout")
 	%back.hide()
+	# clear menu
+	for child in %VBoxContainer.get_children():
+		child.queue_free()

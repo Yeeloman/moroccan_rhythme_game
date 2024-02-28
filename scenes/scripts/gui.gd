@@ -8,7 +8,7 @@ extends Control
 func _ready():
 	_scene_unpacker(main_menu)
 	signal_listener()
-	pass # Replace with function body.
+
 
 
 func signal_listener():
@@ -24,4 +24,3 @@ func load_scene():
 func _scene_unpacker(packed_scene: PackedScene):
 	var unpacked_scene = packed_scene.instantiate()
 	add_child(unpacked_scene)
-	pass 

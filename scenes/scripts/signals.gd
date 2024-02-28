@@ -9,3 +9,5 @@ signal unpause()
 signal populate()
 
 signal lunch_game()
+
+signal lost()

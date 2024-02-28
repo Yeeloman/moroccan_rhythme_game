@@ -1,6 +1,7 @@
 extends Control
 
 @export var player: PackedScene
+@export var win: PackedScene
 @export var black_hitbox: PackedScene
 @export var red_hitbox: PackedScene
 @export var blue_hitbox: PackedScene
@@ -21,10 +22,16 @@ extends Control
 @onready var progress: TextureProgressBar = %ProgressBar
 
 func _ready():
-	#_scene_unpacker(player)
+	_scene_unpacker(player, %player)
 	_scene_unpacker(pause_button, %pause)
 	_set_up_track()
 	test_sync()
+
+func _process(delta):
+	if %ProgressBar.value <= 0:
+		Sig.lost.emit()
+		get_tree().reload_current_scene()
+		#queue_free()
 
 func _set_up_track():
 	var city = CD.selected_city
@@ -87,6 +94,7 @@ func _pause_game():
 	%MidiPlayer.play_speed = 0
 	%pause_filter.visible = true
 	%ProgressBar.visible = false
+
 func _unpause_game():
 	%pause_filter.visible = false
 	%ProgressBar.visible = true
@@ -105,3 +113,7 @@ func _on_midi_player_midi_event(channel, event):
 			_create_beat(spawner_array[rand_index], red_hitbox)
 		else:
 			_create_beat(spawner_array[rand_index], blue_hitbox)
+
+
+func _on_audio_player_finished():
+	get_tree().change_scene_to_packed(win)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdgr33ih1j5ms" path="res://assets/hitbox/outline2.png" id="3_54v7x"]
 
 [node name="hitbox" instance=ExtResource("1_0jeuy")]
+modulate = Color(1, 1, 1, 0.509804)
 
 [node name="hitbox_texture" parent="." index="0"]
 texture = ExtResource("2_xyele")

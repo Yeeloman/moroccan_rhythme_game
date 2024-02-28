@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ult8i6fltn65"]
+[gd_scene load_steps=14 format=3 uid="uid://ult8i6fltn65"]
 
 [ext_resource type="Script" path="res://scenes/scripts/game_turn.gd" id="1_bhuwv"]
 [ext_resource type="Theme" uid="uid://c3c5c5nyp7dsb" path="res://assets/theme/main.tres" id="1_s0mi7"]
+[ext_resource type="PackedScene" uid="uid://dtqqo8b4x5ptq" path="res://scenes/jabar.tscn" id="3_bvnwy"]
 [ext_resource type="PackedScene" uid="uid://dtt1acmqlw6et" path="res://scenes/pause_button.tscn" id="3_dwb82"]
 [ext_resource type="PackedScene" uid="uid://blnqbnkief46v" path="res://scenes/black_hitbox.tscn" id="3_nfipa"]
 [ext_resource type="PackedScene" uid="uid://d18s0aub4fo3h" path="res://scenes/red_hitbox.tscn" id="4_4m2yo"]
+[ext_resource type="PackedScene" uid="uid://c1y42k4sanrp4" path="res://scenes/win.tscn" id="4_da73k"]
 [ext_resource type="Script" path="res://scenes/scripts/l_rotating_node.gd" id="4_esjcp"]
 [ext_resource type="Script" path="res://addons/midi/MidiPlayer.gd" id="4_luydj"]
 [ext_resource type="PackedScene" uid="uid://fersgyu6030i" path="res://scenes/blue_hitbox.tscn" id="5_u3wo5"]
@@ -21,6 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s0mi7")
 script = ExtResource("1_bhuwv")
+player = ExtResource("3_bvnwy")
+win = ExtResource("4_da73k")
 black_hitbox = ExtResource("3_nfipa")
 red_hitbox = ExtResource("4_4m2yo")
 blue_hitbox = ExtResource("5_u3wo5")
@@ -36,6 +40,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
+
+[node name="player" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 522)
 
 [node name="major_1" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -145,4 +153,5 @@ unique_name_in_owner = true
 position = Vector2(1210, 70)
 metadata/_edit_lock_ = true
 
+[connection signal="finished" from="audio_player" to="." method="_on_audio_player_finished"]
 [connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]
