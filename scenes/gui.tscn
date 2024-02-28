@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci5ohdevcys2g"]
+
+[ext_resource type="Theme" uid="uid://c3c5c5nyp7dsb" path="res://assets/theme/main.tres" id="1_5ycs0"]
+[ext_resource type="Script" path="res://scenes/scripts/gui.gd" id="1_sych8"]
+[ext_resource type="PackedScene" uid="uid://ult8i6fltn65" path="res://scenes/game_turn.tscn" id="2_bjxas"]
+[ext_resource type="PackedScene" uid="uid://dfi1m75r1w6c5" path="res://scenes/main_menu.tscn" id="3_hjrq5"]
+[ext_resource type="PackedScene" uid="uid://dqgjrvlemxekn" path="res://scenes/city_nav.tscn" id="5_4piu8"]
+
+[node name="gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5ycs0")
+script = ExtResource("1_sych8")
+level_game = ExtResource("2_bjxas")
+main_menu = ExtResource("3_hjrq5")
+city_nav = ExtResource("5_4piu8")

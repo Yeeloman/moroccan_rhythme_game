@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtt1acmqlw6et"]
+
+[ext_resource type="Script" path="res://scenes/scripts/pause_button.gd" id="1_mv2l0"]
+[ext_resource type="Texture2D" uid="uid://cjw5h4woafilt" path="res://assets/pause/frame_0_delay-0.1s.png" id="1_u82om"]
+[ext_resource type="Texture2D" uid="uid://dwxj77ya17d3e" path="res://assets/pause/frame_1_delay-0.1s.png" id="2_8h0vs"]
+[ext_resource type="Texture2D" uid="uid://kny0s5f3rg68" path="res://assets/pause/frame_2_delay-0.1s.png" id="3_lxkwk"]
+[ext_resource type="Texture2D" uid="uid://brfngqyersb3w" path="res://assets/pause/frame_3_delay-0.1s.png" id="4_ofk2i"]
+[ext_resource type="Texture2D" uid="uid://byxvnn2up3bnw" path="res://assets/pause/frame_4_delay-0.1s.png" id="5_3r1v8"]
+[ext_resource type="Texture2D" uid="uid://csrv6tx71oqcv" path="res://assets/pause/frame_5_delay-0.1s.png" id="6_il63m"]
+[ext_resource type="Texture2D" uid="uid://dbmlqnwbbv50x" path="res://assets/pause/frame_6_delay-0.1s.png" id="7_74up7"]
+[ext_resource type="Texture2D" uid="uid://dkr4b1pq8dhfw" path="res://assets/pause/frame_7_delay-s.png" id="8_yemp0"]
+
+[sub_resource type="Animation" id="Animation_iyg20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_u82om")]
+}
+
+[sub_resource type="Animation" id="Animation_44ubm"]
+resource_name = "button_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_u82om"), ExtResource("2_8h0vs"), ExtResource("3_lxkwk"), ExtResource("4_ofk2i"), ExtResource("5_3r1v8"), ExtResource("6_il63m"), ExtResource("7_74up7"), ExtResource("8_yemp0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7a6j"]
+_data = {
+"RESET": SubResource("Animation_iyg20"),
+"button_animation": SubResource("Animation_44ubm")
+}
+
+[node name="pause_button" type="Node2D"]
+position = Vector2(-64, -64)
+script = ExtResource("1_mv2l0")
+metadata/pause = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_u82om")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u7a6j")
+}
+autoplay = "button_animation"
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

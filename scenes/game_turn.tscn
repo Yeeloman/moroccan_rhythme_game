@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://ult8i6fltn65"]
+
+[ext_resource type="Script" path="res://scenes/scripts/game_turn.gd" id="1_bhuwv"]
+[ext_resource type="Theme" uid="uid://c3c5c5nyp7dsb" path="res://assets/theme/main.tres" id="1_s0mi7"]
+[ext_resource type="PackedScene" uid="uid://br6a1tx1tk155" path="res://scenes/hitbox.tscn" id="2_nmqrf"]
+[ext_resource type="PackedScene" uid="uid://dtt1acmqlw6et" path="res://scenes/pause_button.tscn" id="3_dwb82"]
+[ext_resource type="Script" path="res://scenes/scripts/l_rotating_node.gd" id="4_esjcp"]
+[ext_resource type="Script" path="res://addons/midi/MidiPlayer.gd" id="4_luydj"]
+[ext_resource type="Script" path="res://scenes/scripts/r_rotating_node.gd" id="5_wyh8b"]
+[ext_resource type="Texture2D" uid="uid://dn5ugesayqss2" path="res://assets/layer0.png" id="8_8it38"]
+[ext_resource type="Texture2D" uid="uid://bi5ktax2bg8ik" path="res://assets/progress.png" id="9_40cuy"]
+
+[node name="game_turn" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s0mi7")
+script = ExtResource("1_bhuwv")
+hitbox = ExtResource("2_nmqrf")
+pause_button = ExtResource("3_dwb82")
+metadata/_edit_lock_ = true
+
+[node name="background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="major_1" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(160, 265)
+metadata/in_use = false
+
+[node name="minor_1" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1120, 265)
+metadata/in_use = false
+
+[node name="centered" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 625)
+metadata/in_use = false
+
+[node name="left_rot" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 505)
+script = ExtResource("4_esjcp")
+
+[node name="l_major_2" type="Node2D" parent="left_rot"]
+unique_name_in_owner = true
+position = Vector2(0, -160)
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="l_major_3" type="Node2D" parent="left_rot"]
+unique_name_in_owner = true
+position = Vector2(140, 77)
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="l_major_4" type="Node2D" parent="left_rot"]
+unique_name_in_owner = true
+position = Vector2(-140, 77)
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="right_rot" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(321, 505)
+script = ExtResource("5_wyh8b")
+
+[node name="r_minor_2" type="Node2D" parent="right_rot"]
+unique_name_in_owner = true
+position = Vector2(0, -160)
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="r_minor_3" type="Node2D" parent="right_rot"]
+unique_name_in_owner = true
+position = Vector2(-140, 77)
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="r_minor_4" type="Node2D" parent="right_rot"]
+unique_name_in_owner = true
+position = Vector2(140, 77)
+rotation = -6.28319
+metadata/in_use = false
+metadata/_edit_lock_ = true
+
+[node name="audio_player" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="MidiPlayer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_luydj")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = 33.0
+offset_right = 43.0
+offset_bottom = 63.0
+grow_horizontal = 2
+scale = Vector2(4, 1.5)
+pivot_offset = Vector2(43, 15)
+max_value = 1000.0
+value = 500.0
+texture_under = ExtResource("8_8it38")
+texture_progress = ExtResource("9_40cuy")
+metadata/_edit_lock_ = true
+
+[node name="pause_filter" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.537255)
+
+[node name="pause" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1210, 70)
+metadata/_edit_lock_ = true
+
+[connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]

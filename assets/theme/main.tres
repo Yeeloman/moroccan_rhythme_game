@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3c5c5nyp7dsb"]
+
+[ext_resource type="FontFile" uid="uid://ohy3p1hqgoh3" path="res://assets/theme/fonts/8bitOperatorPlusSC-Regular.ttf" id="1_5p78u"]
+
+[resource]
+default_font = ExtResource("1_5p78u")
+default_font_size = 18

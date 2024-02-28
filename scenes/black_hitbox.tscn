@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://blnqbnkief46v"]
+
+[ext_resource type="PackedScene" uid="uid://br6a1tx1tk155" path="res://scenes/hitbox.tscn" id="1_txtyx"]
+[ext_resource type="Texture2D" uid="uid://djhu5etjgy7xo" path="res://assets/hitbox/START-click-black.png" id="2_8rqd5"]
+[ext_resource type="Texture2D" uid="uid://d1cm34qh7bmnw" path="res://assets/hitbox/black-out.png" id="3_oqeua"]
+
+[node name="hitbox" instance=ExtResource("1_txtyx")]
+
+[node name="hitbox_texture" parent="." index="0"]
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_8rqd5")
+expand_mode = 1
+
+[node name="outline" parent="." index="3"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 61.0
+offset_bottom = 61.0
+texture = ExtResource("3_oqeua")
+expand_mode = 1

@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5tyc8cn02hdd"]
+
+[ext_resource type="Theme" uid="uid://c3c5c5nyp7dsb" path="res://assets/theme/main.tres" id="1_1qycp"]
+[ext_resource type="Script" path="res://scenes/scripts/menu_layer.gd" id="2_1yaid"]
+[ext_resource type="Texture2D" uid="uid://brmwa0w1m1ppl" path="res://assets/jabar-pixel-m9awd.png" id="2_iqf2e"]
+[ext_resource type="Texture2D" uid="uid://cyfve3vki2cvv" path="res://assets/epic-jabar.png" id="3_3e27s"]
+
+[node name="menu_layer" type="VBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme = ExtResource("1_1qycp")
+script = ExtResource("2_1yaid")
+
+[node name="Panel" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="line" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="place_pic" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="line4" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="desc" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(330, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+uppercase = true
+
+[node name="line3" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="button_container" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/button_container"]
+position = Vector2(-2, -3)
+texture_normal = ExtResource("2_iqf2e")
+texture_pressed = ExtResource("3_3e27s")
+
+[node name="line2" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="Panel2" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="HBoxContainer/button_container/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

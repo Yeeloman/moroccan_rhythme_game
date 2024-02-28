@@ -1,0 +1,315 @@
+[gd_scene load_steps=22 format=3 uid="uid://dqgjrvlemxekn"]
+
+[ext_resource type="Theme" uid="uid://c3c5c5nyp7dsb" path="res://assets/theme/main.tres" id="1_4qxgf"]
+[ext_resource type="Texture2D" uid="uid://du4t4sbcgoku7" path="res://assets/map.png" id="1_qnn3i"]
+[ext_resource type="Script" path="res://scenes/scripts/city_nav.gd" id="2_3uhtr"]
+[ext_resource type="Script" path="res://scenes/scripts/menu_maker.gd" id="4_40277"]
+[ext_resource type="Texture2D" uid="uid://dl2q2e8rncqdk" path="res://assets/bimo-chocklat-byad.png" id="4_ud3dd"]
+[ext_resource type="PackedScene" uid="uid://b5tyc8cn02hdd" path="res://scenes/menu_layer.tscn" id="5_yeu1n"]
+[ext_resource type="Texture2D" uid="uid://cjly57dxnwrmm" path="res://assets/dot/dot1.png" id="7_7xowd"]
+[ext_resource type="Texture2D" uid="uid://drgtwhs61iewv" path="res://assets/dot/dot2.png" id="8_dhouw"]
+[ext_resource type="Texture2D" uid="uid://ec76dvhtrbs0" path="res://assets/dot/dot3.png" id="9_mxfv0"]
+[ext_resource type="Texture2D" uid="uid://jv50p55v6jl7" path="res://assets/dot/dot4.png" id="10_3qj1k"]
+[ext_resource type="Texture2D" uid="uid://b0g7togsy423i" path="res://assets/dot/dot5.png" id="11_l3uhr"]
+[ext_resource type="Texture2D" uid="uid://bgvqmbdu1ehs2" path="res://assets/dot/dot6.png" id="12_o0e6n"]
+[ext_resource type="Texture2D" uid="uid://ccv8qcolorm31" path="res://assets/back.png" id="13_gg0mc"]
+[ext_resource type="Texture2D" uid="uid://slrimc5xolss" path="res://assets/active-back.png" id="14_q0gbh"]
+
+[sub_resource type="Animation" id="Animation_um7xx"]
+resource_name = "dot"
+length = 0.60001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%casablanca:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("7_7xowd"), ExtResource("8_dhouw"), ExtResource("9_mxfv0"), ExtResource("10_3qj1k"), ExtResource("11_l3uhr"), ExtResource("12_o0e6n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warzazat:texture_normal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_7xowd"), ExtResource("8_dhouw"), ExtResource("9_mxfv0"), ExtResource("10_3qj1k"), ExtResource("11_l3uhr"), ExtResource("12_o0e6n")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%merrakch:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_7xowd"), ExtResource("8_dhouw"), ExtResource("9_mxfv0"), ExtResource("10_3qj1k"), ExtResource("11_l3uhr"), ExtResource("12_o0e6n")]
+}
+
+[sub_resource type="Animation" id="Animation_0m1n5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%casablanca:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warzazat:texture_normal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%merrakch:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36mcn"]
+_data = {
+"RESET": SubResource("Animation_0m1n5"),
+"dot": SubResource("Animation_um7xx")
+}
+
+[sub_resource type="Animation" id="Animation_1inok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-650, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cities/merrakch:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cities/warzazat:texture_normal")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cities/casablanca:texture_normal")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7xowd")]
+}
+
+[sub_resource type="Animation" id="Animation_85y6s"]
+resource_name = "slide_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.2974, 1),
+"update": 0,
+"values": [Vector2(-650, 48), Vector2(38, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uhd10"]
+resource_name = "slideout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 2.54912),
+"update": 0,
+"values": [Vector2(38, 48), Vector2(-650, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lq8gu"]
+_data = {
+"RESET": SubResource("Animation_1inok"),
+"slide_in": SubResource("Animation_85y6s"),
+"slideout": SubResource("Animation_uhd10")
+}
+
+[node name="city_nav" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4qxgf")
+script = ExtResource("2_3uhtr")
+metadata/_edit_lock_ = true
+
+[node name="bg_map" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qnn3i")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="menu" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -650.0
+offset_top = 48.0
+offset_right = -8.0
+offset_bottom = 676.0
+texture = ExtResource("4_ud3dd")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_40277")
+menu_layer = ExtResource("5_yeu1n")
+metadata/_edit_lock_ = true
+
+[node name="cities" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="casablanca" type="TouchScreenButton" parent="cities"]
+unique_name_in_owner = true
+position = Vector2(1038, 111)
+texture_normal = ExtResource("7_7xowd")
+metadata/_edit_lock_ = true
+
+[node name="warzazat" type="TouchScreenButton" parent="cities"]
+unique_name_in_owner = true
+position = Vector2(861, 385)
+texture_normal = ExtResource("7_7xowd")
+metadata/_edit_lock_ = true
+
+[node name="merrakch" type="TouchScreenButton" parent="cities"]
+unique_name_in_owner = true
+position = Vector2(1017, 203)
+texture_normal = ExtResource("7_7xowd")
+metadata/_edit_lock_ = true
+
+[node name="dot_animation" type="AnimationPlayer" parent="cities"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_36mcn")
+}
+autoplay = "dot"
+
+[node name="menu_animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_lq8gu")
+}
+
+[node name="back" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(1214, 8)
+texture_normal = ExtResource("13_gg0mc")
+texture_pressed = ExtResource("14_q0gbh")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="cities/casablanca" to="." method="_on_casablanca_pressed"]
+[connection signal="pressed" from="cities/warzazat" to="." method="_on_fes_pressed"]
+[connection signal="pressed" from="cities/warzazat" to="." method="_on_warzazat_pressed"]
+[connection signal="pressed" from="cities/merrakch" to="." method="_on_merrakch_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_touch_screen_button_pressed"]
